@@ -28,7 +28,7 @@ for chunk in plaintext:
 
 This loop, describing how a block cipher is applied in chunks, is referred to as a _mode of operation_. This particular mode of operation is known as Electronic Codebook (ECB) mode. If you're not familiar with block ciphers, this approach might seem reasonable, but despite the strength of the AES256 cipher the overall implementation is terribly insecure. This mode of operation introduces a property that two chunks with the same plaintext will have the same encrypted output. A great example of why this is a bad idea is provided below ([source]). When looking at an individual encrypted pixel, it's impossible to tell what the input is. But zooming out and seeing the image as a whole reveals very clear patterns in the input data
 
-![[images/An-example-of-image-encrypted-using-ECB-mode.png]]
+![ECB Penguin](/images/An-example-of-image-encrypted-using-ECB-mode.png)
 
 So when a service says they are using "AES-256", it's possible that they are using AES-256-ECB. While unlikely, it was discovered back in 2020 that while Zoom was claiming to use "AES-256" to encrypt their meetings what they were actually doing was:
 
